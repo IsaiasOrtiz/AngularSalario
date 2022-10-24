@@ -1,0 +1,39 @@
+
+<div>
+<div class="form-group">
+  <label class="form-label p-3" for="customFile">Seleccione al archivo para generar la planilla</label><br/>
+  <input type="file" class="form-control" id="customFile" (change)="changeListener($event)" class="shadow p-3 bg-white rounded block" />
+  <button  id="liveToastBtn" (click)="exportToExcel()" onclick="$('#liveToast').toast('show')" class="btn btn-info" *ngIf="data" >Export to Excel</button>
+</div>
+</div>
+<a href="#" data-toggle='modal' data-target='.bd-example-modal-lg' class="d-block p-2">Instruciones</a>
+
+<div class="container p-4">
+  <app-planilla-tabla [salario]="salario" ></app-planilla-tabla>
+</div>
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Instruciones</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <h5>Indicacion 1</h5>
+      <p>El archivo deber ser un archivo csv separado por ( ; ) </p>
+      <h5>Indicacion 2</h5>
+      <p>Usar la estructura de ejemplo</p>
+      <p>Ejemplo: ---> DOUGLAS VALLEl;1000</p>
+      <h5>Imagen de Ejemplo</h5>
+      <img src="../../../assets/img/example_csv.PNG" alt="">
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+    </div>
+  </div>
+</div>
+</div>
+<app-general-toast mensaje='La planilla se genero correctamente y esta lista para guardar.'></app-general-toast>

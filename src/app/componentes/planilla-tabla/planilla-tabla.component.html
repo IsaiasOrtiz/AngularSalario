@@ -1,0 +1,23 @@
+
+<table id="planilla-tble" class="table table-striped" *ngIf="salario[0].nombre != 'N/A'">
+    <thead>
+      <tr>
+        <th scope="col">NOMBRE</th>
+        <th scope="col">Salario TL</th>
+        <th scope="col">ISSS</th>
+        <th scope="col">AFP</th>
+        <th scope="col">RENTA</th>
+        <th scope="col">Salario</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let info of salario">
+        <th scope="row">{{info.nombre}}</th>
+        <td>${{info.salario}}</td>
+        <td>${{redodear(calcularIsss(info.salario))}}</td>
+        <td>${{redodear(calcularAfp(info.salario))}}</td>
+        <td>${{calcularRenta(info.salario) != 0 ? redodear(calcularRenta(info.salario)) : 0}}</td>
+        <td>${{redodear(sueldoNeto(info.salario))}}</td>
+      </tr>
+    </tbody>
+  </table>
